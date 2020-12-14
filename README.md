@@ -1,4 +1,4 @@
-# Full-Stack Course Overview (UTA-AUS-FSF-FT-12-2020-U-C)
+# Full-Stack Course Overview
 
 Welcome to the Full-Stack Boot Camp! Some of the most important factors that influence how well and how quickly you learn something are not only how you structure and sequence your learning, but also how you stay motivated and curious about the material, and how you leverage your prior knowledge to build new knowledge you can apply in different situations. 
 
