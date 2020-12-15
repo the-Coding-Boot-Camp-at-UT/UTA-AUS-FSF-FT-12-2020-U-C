@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            float:right;
+        }
+        div {
+            margin-top: 50px;
+            border: 5px solid gray;
+        }
+        .clearfix::after {
+            content: "";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div class="clearfix">
+        Clearfix - See how the image fits!
+        <img src="https://www.placehold.it/300x300">
+    </div>
+    <div>
+        No clearfix - see how the image pokes out?
+        <img src="https://www.placehold.it/300x300">
+    </div>
+    
+</body>
+</html>
