@@ -44,4 +44,7 @@
 
 * Bonus:
 
-  * Stage, commit, and push this new file to Github.
+  * Create a new repository on Github
+  * Clone the repo to your computer
+  * Copy the files into the new repo
+  * Add, Commit, and Push these new file to Github.
