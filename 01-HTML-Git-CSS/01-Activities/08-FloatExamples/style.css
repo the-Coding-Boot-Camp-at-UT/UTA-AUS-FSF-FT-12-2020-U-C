@@ -1,0 +1,43 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1000px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.25em;
+}
+
+header {
+  background-color: #1D88E5;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+aside {
+  background-color: #1D88E5;
+  width: 300px;
+  height: 400px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+main {
+  background-color: #1D88E5;
+  width: 700px;
+  height: 400px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+footer {
+  background-color: #1D88E5;
+  width: 1000px;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid white;
+}
