@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 50%;
+            margin:0 auto;
+        }
+        .relative {
+            background-color: #e45151;
+            height: 300px;
+            position:relative;
+        }
+        .absolute {
+            background-color: #5c92d8;
+            position:absolute;
+            right: -25px;
+            bottom: 0;
+        }
+        .fixed {
+            background-color: #43ba67;
+            top:0;
+            left:0;
+            position:fixed;
+        }
+        .box {
+            padding:20px;
+            font-size:20px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam adipisci maiores laboriosam delectus autem eveniet earum fugit neque, placeat explicabo excepturi labore veritatis aut, omnis minus? Neque culpa corporis laudantium?
+        Similique nobis error recusandae neque, quidem deleniti ducimus aliquid sequi non, ea dolore explicabo, reiciendis animi. Praesentium unde quo, distinctio tempora, nam harum voluptatem, nostrum odio quisquam dolorem ad voluptate?
+        Cumque numquam deserunt incidunt, neque tempora nesciunt debitis iure fuga libero, voluptatibus id provident a, explicabo rerum similique unde mollitia alias quam. Corrupti dolorum itaque illum, ipsam eum odit reiciendis!
+        Officiis assumenda vitae, doloremque, dolores non rerum voluptatum quas, porro veritatis id asperiores esse! Voluptatibus, ea explicabo ad debitis sint eos nemo tenetur magnam deserunt, dolorum adipisci, dolor maxime voluptates?
+        </p>
+        <div class="relative box">
+            &lt;div&gt;<br>
+            position:relative;
+
+            <div class="absolute box">
+                &lt;div&gt;<br>
+                position:relative;
+            </div>
+        </div>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia beatae ab quos nesciunt excepturi autem quae perspiciatis esse quasi enim harum, aliquid temporibus dolor deleniti at est exercitationem cupiditate. Aperiam?
+            Iusto aut ducimus odio ab atque voluptate assumenda tempore, mollitia quibusdam necessitatibus incidunt sapiente voluptates fugit temporibus dignissimos obcaecati aperiam hic, quis accusamus consectetur! Iusto voluptatum est minima illo facilis.
+            Necessitatibus dignissimos cum neque saepe, et ullam veritatis praesentium iste obcaecati hic, voluptatem non dicta ratione delectus amet dolorem, cumque voluptatibus tempore! Qui, velit. Sunt odio provident nulla blanditiis qui!
+            Vero repellat maxime, veritatis, quidem eos quas perspiciatis molestiae consectetur, optio ratione unde? Asperiores laboriosam sunt nemo hic? Deserunt consequuntur rem id, nisi modi quia eius minima enim alias placeat!
+        </p>
+    </div>
+
+    <div class="fixed box">
+        &lt;div&gt;<br>
+        position:fixed;
+    </div>
+</body>
+</html>
