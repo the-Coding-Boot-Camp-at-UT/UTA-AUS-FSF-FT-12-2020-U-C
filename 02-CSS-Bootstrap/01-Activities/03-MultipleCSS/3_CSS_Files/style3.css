@@ -1,0 +1,25 @@
+/*
+  Stylesheet #2
+  =============
+  Even more rules!
+  Take note: The rules here have priority over the CSS in stylesheet #1 AND #2.
+  That's because #3's rules take effect after #1's and #2's, taking precedence
+  any CSS coded in the older documents.
+*/
+
+#main-bio {
+  width: 70%;
+}
+
+#contact-info {
+  width: 30%;
+}
+
+#bio-image {
+  /* Box-model */
+  width: 200px;
+  height: 200px;
+
+  /* Positioning */
+  margin-right: 20px;
+}
