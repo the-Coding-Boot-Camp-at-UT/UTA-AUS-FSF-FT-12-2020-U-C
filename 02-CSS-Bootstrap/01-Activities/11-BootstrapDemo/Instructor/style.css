@@ -1,0 +1,11 @@
+.my-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.card-container {
+    display:flex;
+}
+
+.navbar.bg-custom-green {
+    background:rgb(153, 191, 153);
+}
