@@ -1,0 +1,19 @@
+/* all p-tags */
+p {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* paragraph 1 */
+.thought1 {
+  font-weight: bolder;
+}
+
+/* paragraph 2 */
+.thought2 {
+  font-size: 24px;
+}
+
+/* paragraph 3 */
+.thought3 {
+  line-height: 50px;
+}
