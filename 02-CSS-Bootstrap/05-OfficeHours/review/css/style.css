@@ -1,0 +1,47 @@
+body {
+    color:white;
+    margin:0;
+    padding:0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+
+.p20{
+    padding: 20px;
+}
+
+header {
+    background-color:blue;
+    flex-grow:0;
+}
+aside {
+    background-color:red;
+    width:33.3%;
+    height:100%;
+}
+section {
+    background-color:green;
+    width:66.7%;
+    height:100%;
+}
+
+main {
+    flex-grow:1;
+    display:flex;
+}
+
+footer {
+    background-color:orange;
+    clear:both;
+    flex-grow:0;
+}
