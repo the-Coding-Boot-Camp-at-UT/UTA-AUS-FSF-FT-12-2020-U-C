@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-color {
+            /* !important makes it so this rule will be applied, even though .bg-color is less specific than
+            the #main=menu below */
+            color:white !important;
+            background-color:black;
+        }
+
+        #main-menu {
+            /* If i wanted to override the above color, I would need to include !important */
+            color: red;
+            padding: 20px;
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-menu" class="bg-color">
+        Some Text
+    </div>
+</body>
+</html>
