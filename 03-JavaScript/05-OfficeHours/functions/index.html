@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+        console.log("Hello Sean");
+        console.log("Hello Christian");
+        console.log("Hello Class");
+
+        function sayHello(){
+            console.log("Hello World");
+        }
+        function sayHelloTo(name){
+            console.log("Hello " + name);
+        }
+        function sayHelloXTimeTo(number, name){
+            for(var i = 0; i < number; i++){
+                console.log("Hello " + name);
+            }
+        }
+
+
+        sayHelloXTimeTo(3, "Christian");
+        
+        var students = ["A","B","C","D"];
+        var movie = ["Die Hard", "Christmas Vacation", "The Polar Express"];
+
+        function pickOneAtRandom(someArray){
+            var index = Math.floor(Math.random() * someArray.length);
+            return someArray[index];
+        }
+
+        console.log( pickOneAtRandom(students) );
+        console.log( pickOneAtRandom(movie) );
+
+
+    </script>
+</body>
+</html>
