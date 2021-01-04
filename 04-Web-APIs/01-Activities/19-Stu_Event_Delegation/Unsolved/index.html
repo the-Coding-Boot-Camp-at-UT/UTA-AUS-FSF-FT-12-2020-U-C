@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event Delegation</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <form>
+      <h1>List of friends</h1>
+      <ul id="people-list">
+        <li id="0">Bob <button>edit</button></li>
+      </ul>
+      <input placeholder="name" id="name" />
+      <button id="add-btn">Add Person</button>
+    </form>
+    <div id="modal-container" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2 id="modal-name">
+          </h2>
+        </div>
+        <div class="modal-body">
+          <h3>
+            Description:
+          </h3>
+          <textarea id="description" cols="30" rows="10"></textarea>
+          <div>
+            <button id="save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
