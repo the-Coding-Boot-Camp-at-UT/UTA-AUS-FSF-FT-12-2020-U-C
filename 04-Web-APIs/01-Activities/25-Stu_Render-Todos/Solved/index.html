@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="todos">
+      <h1>ToDos</h1>
+      <form id="todo-form" method="POST">
+        <label for="todo-text">Add a Todo:</label>
+        <input type="text" placeholder="What needs to be done?" name="todo-text" id="todo-text" />
+      </form>
+      <p>Todo Count: <span id="todo-count">0</span></p>
+      <ul id="todo-list"></ul>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
