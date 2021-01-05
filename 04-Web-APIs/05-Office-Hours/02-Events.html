@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .some-div {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="some-div">0</div>
+        <div class="some-div">1</div>
+        <div class="some-div">2</div>
+        <div class="some-div">3</div>
+        <div class="some-div">4</div>
+        <div class="some-div">5</div>
+    </div>
+    <script type="text/javascript">
+        var container = document.querySelector("#container");
+        container.addEventListener("click", function (event) {
+            if (event.target.matches(".some-div")) {
+                console.log("I've been clicked!");
+                console.log(this, event.target);
+                var content = event.target.textContent;
+                alert(content);
+            }
+        })
+        var newDiv = document.createElement("div");
+        newDiv.classList.add("some-div");
+        newDiv.textContent = "6"
+        container.append(newDiv);
+
+    </script>
+</body>
+
+</html>

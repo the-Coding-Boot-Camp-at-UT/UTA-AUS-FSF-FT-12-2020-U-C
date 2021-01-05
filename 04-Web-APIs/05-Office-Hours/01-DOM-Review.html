@@ -1,0 +1,47 @@
+<!-- DOM
+Document Object Model
+
+HTML
+CSS
+JS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background-gray {
+            background:#AAAAAA;
+        }
+        .large-text {
+            font-size:50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum pariatur harum omnis itaque tempora atque odio aliquam laboriosam velit minus molestiae quaerat, dolorem voluptatem nihil facilis quia cupiditate reiciendis molestias?</p>
+        <p class="background-gray">Id perspiciatis, necessitatibus maiores laudantium ratione doloribus debitis, asperiores libero amet veniam eveniet minima omnis ipsam quaerat facere modi, quasi veritatis cum sapiente qui quas temporibus dicta. Nesciunt, laudantium ullam?</p>
+        <p>Ab natus eveniet similique id nam perspiciatis sunt, deleniti commodi! Ea provident numquam aspernatur, nulla eius sequi doloremque labore praesentium. Dolore sint laborum accusamus, accusantium itaque expedita inventore nulla. Nam!</p>
+        <p class="background-gray">Aperiam, placeat. Officiis illum, nostrum commodi odio placeat sapiente explicabo a, exercitationem quam suscipit iusto repellat quisquam doloremque corporis quibusdam, amet earum deserunt ipsum eveniet? Maiores laborum at quidem repellendus?</p>
+        <p>Blanditiis, quia totam natus minus ad atque laudantium magnam praesentium autem repellendus fuga esse aperiam ratione officia officiis, maiores velit recusandae perspiciatis neque quas eveniet iusto ea? Commodi, aliquid itaque.</p>
+    </div>
+    <div>
+        <a href="#">A</a>
+        <a id="twitter-icon" href="#">B</a>
+        <a href="#">C</a>
+    </div>
+    <script type="text/javascript">
+        var pTags = document.querySelectorAll("p");
+        var index = Math.floor(Math.random() * pTags.length);
+        var randomPTag = pTags[index];
+
+        randomPTag.classList.add("large-text");
+        var isFirstChild = randomPTag.matches(":first-child");
+        if(isFirstChild){
+            randomPTag.style.color = "blue";
+        }
+    </script>
+</body>
+</html>
