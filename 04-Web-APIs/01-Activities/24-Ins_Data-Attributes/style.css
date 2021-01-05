@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  letter-spacing: 0.25em;
+  color: #001b44;
+}
+
+.img-container {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.img-container::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+img {
+  display: block;
+  float: left;
+  width: 23%;
+  height: 200px;
+  margin: 1%;
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 740px) {
+  img {
+    width: 48%;
+  }
+}

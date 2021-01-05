@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+#add, #subtract {
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(34,36,38,.15) 0 0 0 0 inset;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 0;
+  padding: 20px;
+}
+
+#add {
+  background-color: #2185d0;
+}
+
+#add:hover {
+  background-color: #1678c2;
+}
+
+#subtract {
+  background-color: #db2828;
+}
+
+#subtract:hover {
+  background-color: #CF1919;
+}
