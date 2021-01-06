@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Tomato Timer</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tomato Timer</h1>
+    </header>
+    <div class="container">
+      <div class="timer">
+        <div id="hand"></div>
+        <div class="controls">
+          <label class="switch" for="status-toggle">
+            <input checked type="checkbox" name="status-toggle" id="status-toggle" />
+            <span class="slider"></span>
+          </label>
+          <div class="status">Status: <span id="status">Working</span></div>
+          <div class="time">
+            <div id="minutes">25</div>
+            <div id="seconds">00</div>
+          </div>
+          <div class="buttons">
+            <button aria-label="play" id="play">
+              <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <button aria-label="pause" id="pause">
+              <i class="fa fa-pause" aria-hidden="true"></i>
+            </button>
+            <button aria-label="stop" id="stop">
+              <i class="fa fa-stop" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="inputs">
+        <div class="input-group">
+          <label for="work-minutes">Minutes of Work</label>
+          <input type="number" name="work" id="work-minutes" value="25" />
+        </div>
+        <div class="input-group">
+          <label for="rest-minutes">Minutes of Rest</label>
+          <input type="number" name="rest" id="rest-minutes" value="5" />
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
