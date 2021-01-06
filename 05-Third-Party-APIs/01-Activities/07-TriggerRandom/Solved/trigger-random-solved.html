@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Random</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Added link to the jQuery library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+  <div class="jumbotron">
+
+    <h1 class="text-center">Generate a Random Number!</h1>
+
+    <div class="text-center">
+
+      <!-- Here we have our button for generating random numbers (#random-button) -->
+      <button id="random-button" class="btn btn-primary btn-lg fa fa-question"></button>
+
+    </div>
+
+  </div>
+
+  <!-- Here we have div called "randomNumber" where our random number will go -->
+  <h1 class="text-center" id="random-number"></h1>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      // Notice I didn't set $(".jumbotron") to a var this time?
+      // If you only plan to use that selector once it doesn't need to be a var
+      $("#random-button").on("click", function() {
+
+        // ... we generate a random number
+        var random = Math.floor(Math.random() * 1000) + 1;
+
+        // ... and then dump the random number into our random-number div.
+        $("#random-number").text(random);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
