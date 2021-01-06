@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Number Checker</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <h1 class="text-center">Number Guesser</h1>
+    <h2 class="text-center">See if you can guess the number the computer is thinking of!</h2>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-2">
+          <h3 class="card-header">Computer Pick</h3>
+          <div class="card-body text-center">
+            <h1 id="computer-pick">???</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-2">
+          <h3 class="card-header">You Pick</h3>
+          <div class="card-body text-center">
+            <button id="button-1" class="btn btn-danger btn-choice" value="1">
+              <h1>1</h1>
+            </button>
+            <button id="button-2" class="btn btn-danger btn-choice" value="2">
+              <h1>2</h1>
+            </button>
+            <button id="button-3" class="btn btn-danger btn-choice" value="3">
+              <h1>3</h1>
+            </button>
+            <button id="button-4" class="btn btn-danger btn-choice" value="4">
+              <h1>4</h1>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-2">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body text-center">
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      // Initial Variables
+      var computerPick = Math.floor(Math.random() * 4) + 1;
+      var lockGame = false;
+
+      // We log the computer's pick to console to make it easier to troubleshoot
+      console.log("Computer Pick: " + computerPick);
+
+      // Here we create the on click event that gets the user"s pick
+      $(".btn-choice").on("click", function() {
+
+        // Here this lockGame line prevents the user from changing the option after the game is done.
+        if (lockGame !== true) {
+
+          // We get the value associated with the button the user picked from here
+          var yourPick = $(this).val();
+          console.log("Your Pick: " + yourPick);
+
+          // We then reveal the computer's pick in the html
+          $("#computer-pick").text(computerPick);
+
+          // If your pick matched the computer's pick you let them know.
+          if (parseInt(yourPick) === computerPick) {
+            $("#result").text("Yep! You got it! Refresh the page to play again.");
+            lockGame = true;
+          }
+
+          // If the numbers did not match. You also let them know
+          else {
+            $("#result").text("Nope. Refresh the page to play again.");
+            lockGame = true;
+          }
+        }
+
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
