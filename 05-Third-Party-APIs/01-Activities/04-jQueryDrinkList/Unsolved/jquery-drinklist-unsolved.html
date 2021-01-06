@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>JavaScript Content!</title>
+ 
 </head>
 <body>
 
@@ -10,7 +11,7 @@
   <hr>
 
   <div id="drink-options"></div>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
 
     var drinkList = [
@@ -28,7 +29,12 @@
     // Using JavaScript programmatically append each drinkList item to the "drink-options" div
     // HINT: you will need a for loop to go over each element in the list
 
-
+    $.each(drinkList, function(index, drink){
+      var drinkP = $("<p>");
+      drinkP.text(drink);
+      $("#drink-options").append(drinkP);
+    })
+    $("#drink-options").append(drinkList.map(drink => $(`<p>${drink}</p>`)))
   </script>
 
 </body>

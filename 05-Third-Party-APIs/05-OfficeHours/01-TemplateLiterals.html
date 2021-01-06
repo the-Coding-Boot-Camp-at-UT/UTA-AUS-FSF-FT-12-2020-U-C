@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template String Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  
+</head>
+<body>
+    <script type="text/javascript">
+        // https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html
+        
+
+        var div = $(/*html*/`
+            <div class="jumbotron">
+                <h1 class="text-center">Number Guesser</h1>
+                <h2 class="text-center">See if you can guess the number the computer is thinking of!</h2>
+            </div>
+        `)
+
+        var number = Math.floor(Math.random() * 10) + 1;
+        var h1Number = $(/*html*/`
+            <h1 id="computer-pick">${number}</h1>
+        `)
+
+        div.append(h1Number);
+        $(document.body).append(div);
+    </script>
+</body>
+</html>

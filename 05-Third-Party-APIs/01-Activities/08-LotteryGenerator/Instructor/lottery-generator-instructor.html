@@ -32,6 +32,12 @@
 
   <script type="text/javascript">
 
+    // function doXTimes(fn, num){
+    //   for(var i = 0; i < num; i++){
+    //     fn(i);
+    //   }
+    // }
+
     $(document).ready(function() {
 
       // Notice I didn't set $(".jumbotron") to a var this time?
@@ -40,7 +46,7 @@
 
         // ... we generate a random number
         var randomNumber = "";
-        for(var i =0; i < 9; i++){
+        for(var i =0; i < 9; i++){    
           randomNumber += Math.floor(Math.random() * 10);
         }
 
