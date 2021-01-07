@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Correct Color Picker</title>
+
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <style>
+    #rand-target-color,
+    #color-picker li {
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>Correct Color Picker</h2>
+    <p>Pick the <b>color</b> of the word shown from the list below it.</p>
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+
+          <!-- Create random target color -->
+          <span id="rand-target-color">
+          </span>
+
+        </h3>
+      </div>
+      <div class="card-body">
+
+        <!-- Create colors to pick -->
+        <ul class="list-unstyled" id="color-picker">
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    // JavaScript function that wraps everything
+    $(document).ready(function() {
+
+      // Array for word colors
+      var colorsOfText = [];
+
+      // Target word
+      var targetColor;
+
+      // Target word color
+      var targetColorOfText;
+
+      // User"s selection
+      var userAnswer;
+
+      // Array for words
+      var colors = [
+        "brown",
+        "blue",
+        "magenta",
+        "teal",
+        "coral",
+        "black"
+      ];
+
+      // This function sets a random color "word" and a random set of colors "visuals"
+      function randColor() {
+
+        // Set random word
+
+
+        // Set random word color
+
+
+      }
+
+      // This function creates the actual "game" logic.
+      function createColorPicker() {
+
+        // Shuffle color array
+
+
+
+        // Push to text color array
+
+
+
+        // Shuffle text color array
+
+
+        // Loop through all colors in the array
+        // Create element to hold word
+        // Output a word
+        // Make word a random color
+
+      }
+
+      // Clear the divs and arrays upon each round.
+      function clear() {
+
+      }
+
+      // Function for resetting colors and setting new colors.
+      function reset() {
+
+      }
+
+      // Get id of element clicked by user
+      $("#color-picker").click(function(event) {
+
+      });
+
+      // Run game
+      reset();
+    });
+
+  </script>
+</body>
+</html>
