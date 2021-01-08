@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>Basic Table</h2>
+    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- The scope attribute specifies that this is a header for a column -->
+          <th scope="col">Movie Name</th>
+          <th scope="col">Year</th>
+          <th scope="col">Actors</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Interstellar</td>
+          <td>2014</td>
+          <td>Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow</td>
+        </tr>
+        <!-- Insert additional movie rows here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // The below code fills in the first row of the table
+    function addMovieInfo(movie){
+      var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+
+      
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
+        // Method 1
+        $("tbody").append($(/*html*/`
+          <tr>
+            <td>${response.Title}</td>
+            <td>${response.Year}</td>
+            <td>${response.Actors}</td>
+          </tr>
+        `));
+        // Method 2
+        $("tbody").append(
+          $("<tr>")
+            .append($("<td>").text(response.Title))
+            .append($("<td>").text(response.Year))
+            .append($("<td>").text(response.Actors))
+        );
+        // Method 3
+        var row = $("<tr>");
+        var title = $("<td>");
+        title.text(response.Title);
+        row.append(title);
+
+        var year = $("<td>");
+        year.text(response.Year);
+        row.append(year);
+
+        var actors = $("<td>");
+        actors.text(response.Actors);
+        row.append(actors);
+        $("tbody").append(row);
+      });
+    }
+    addMovieInfo("Mr. Nobody");
+    addMovieInfo("The Matrix");
+    addMovieInfo("The Wedding Singer");
+    addMovieInfo("asdfasdfasdfafsd");
+
+    $.ajax({}).then(function(){})
+    $.ajax({}).then(function(){})
+    $.ajax({}).then(function(){})
+
+  </script>
+</body>
+
+</html>
