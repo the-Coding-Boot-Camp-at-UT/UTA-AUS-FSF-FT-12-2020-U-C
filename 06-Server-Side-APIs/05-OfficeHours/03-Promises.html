@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <script>
+        var resolve, reject;
+        var promise = new Promise((_resolve, _reject) => {
+            resolve = _resolve; reject = _reject;
+        })
+        console.log("Promises!");
+
+        var movies = ["Frozen", "Frozen II", "The Phantom Menace", "Bloodsport", "Big Trouble in Little China"];
+        var promises = [];
+        movies.forEach(function(movie){
+            promises.push(
+                $.get(`https://www.omdbapi.com/?apikey=trilogy&t=${movie}`).then(function(response){
+                    console.log(response.Title);
+                    return response;
+                })
+            );
+        })
+        console.log(promises);
+        Promise.all(promises).then(function(movies){
+            console.log(`
+            
+            ALL DONE
+            
+            `)
+            movies.forEach(function(movie){
+                console.log(movie.Title);
+            });
+        })
+
+    </script>
+</body>
+</html>
