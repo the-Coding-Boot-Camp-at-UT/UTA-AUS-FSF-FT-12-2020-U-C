@@ -1,0 +1,35 @@
+#root {
+  text-align: center;
+  padding-top: 150px;
+}
+
+.crystal {
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+  display: inline-block;
+  margin: 40px;
+  cursor: pointer;
+}
+
+.crystal:hover {
+  transform: rotate(135deg) scale(1.2);
+  transition: .5s all;
+}
+
+.crystal:active {
+  transform: rotate(135deg) scale(1);
+  transition: .2s all;
+}
+
+.red {
+  background: #e53935;
+}
+
+.blue {
+  background: #1e88e5;
+}
+
+.green {
+  background: #43a047;
+}
