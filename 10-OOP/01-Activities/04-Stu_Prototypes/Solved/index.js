@@ -1,4 +1,4 @@
-// TODO: Add a comment describing what kind of function this is
+// Constructor function which can take in a series of values and create objects
 function Character(name, type, age, strength, hitpoints) {
   this.name = name;
   this.type = type;
@@ -7,7 +7,7 @@ function Character(name, type, age, strength, hitpoints) {
   this.hitpoints = hitpoints;
 }
 
-// TODO: Add a comment describing the purpose of `.prototype` in this method declaration
+// Associates the method printStats() to the Character constructor, which prints all of the stats for a character
 Character.prototype.printStats = function () {
   console.log(
     `Name: ${this.name}\nProfession: ${this.type}\nAge: ${this.age}\nStrength: ${this.strength}\nHitPoints: ${this.hitpoints}`
@@ -15,7 +15,7 @@ Character.prototype.printStats = function () {
   console.log('\n-------------\n');
 };
 
-// TODO: Add a comment describing the functionality of this method
+// Method which determines if "hitpoints" are greater than zero and returns a boolean depending on the outcome
 Character.prototype.isAlive = function () {
   if (this.hitpoints > 0) {
     console.log(`${this.name} is still alive!`);
@@ -26,12 +26,12 @@ Character.prototype.isAlive = function () {
   return false;
 };
 
-// TODO: Add a comment describing the functionality of this method
+// Method which takes in a second object and decreases their "hitpoints" by this character's strength
 Character.prototype.attack = function (character2) {
   character2.hitpoints -= this.strength;
 };
 
-// TODO: Add a comment describing the functionality of this method
+// Method which increases this character's stats when called
 Character.prototype.levelUp = function () {
   this.age += 1;
   this.strength += 5;
@@ -46,15 +46,8 @@ rogue.printStats();
 
 rogue.attack(warrior);
 
-// TODO: Add a comment describing what you expect to see printed in the console
-warrior.printStats();
-
-// TODO: Add a comment describing what you expect to see printed in the console
-warrior.isAlive();
+warrior.printStats(); // => Crusher HitPoints: 55
+warrior.isAlive(); // => Crusher is still alive!
 
 rogue.levelUp();
-
-// TODO: Add a comment describing what you expect to see printed in the console
-rogue.printStats();
-
-console.log(Object.getPrototypeOf(warrior));
+rogue.printStats(); // => Dodger HitPoints: 75
