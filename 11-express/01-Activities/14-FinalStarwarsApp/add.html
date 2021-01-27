@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars - Express</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Star Wars Express</h1>
+        <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+        <hr />
+        <a href="/">
+          <button class="btn btn-danger btn-lg">
+            <span class="fa fa-eye"></span> View Characters
+          </button>
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3><strong>Add Characters</strong></h3>
+            </div>
+            <div class="card-body">
+              <form method="POST" role="form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" />
+                </div>
+
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <input type="text" class="form-control" id="role" />
+                </div>
+
+                <div class="form-group">
+                  <label for="age">Age</label>
+                  <input type="text" class="form-control" id="age" />
+                </div>
+
+                <div class="form-group">
+                  <label for="force-points">Force Points</label>
+                  <input type="text" class="form-control" id="force-points" />
+                </div>
+              </form>
+              <br />
+              <div class="text-right">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-md"
+                  id="add-btn"
+                >
+                  <span class="fa fa-fire"></span> Add to the Force
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      
+      const addBtn = document.getElementById('add-btn');
+      
+      // Question: What is "e" short for?
+      addBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Question: What does this code do?
+        let charName = document.getElementById('name').value.trim();
+        let charRole = document.getElementById('role').value.trim();
+        let charAge = document.getElementById('age').value.trim();
+        let charFp = document.getElementById('force-points').value.trim();
+        
+        let newCharacter = {
+          name: charName,
+          role: charRole,
+          age: parseInt(charAge),
+          forcePoints: parseInt(charFp),
+        };
+
+        // Question: What does this code do??
+        fetch('/api/characters', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newCharacter),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('add.html', data);
+            alert(`Adding character: ${data.name}`);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      });
+    </script>
+  </body>
+</html>

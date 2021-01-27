@@ -1,0 +1,19 @@
+{
+  "name": "starwars-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server6.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server6.js",
+    "watch": "nodemon server6.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
