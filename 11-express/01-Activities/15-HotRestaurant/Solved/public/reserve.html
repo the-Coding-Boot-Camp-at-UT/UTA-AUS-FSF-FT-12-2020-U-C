@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reservation Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="text-center">
+          <span class="fa fa-fire"></span> Hot Restaurant
+        </h1>
+        <hr />
+        <h2 class="text-center">Make your reservation</h2>
+        <br />
+        <div class="text-center">
+          <a href="/tables">
+            <button class="btn btn-lg btn-primary">
+              <span class="fa fa-list-alt"></span> View Tables
+            </button>
+          </a>
+          <a href="/">
+            <button class="btn btn-lg btn-default">
+              <span class="fa fa-home"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Reservation Page -->
+          <div class="card">
+            <div class="card-header">
+              Table Reservation
+            </div>
+            <div class="card-body">
+              <form role="form">
+                <div class="form-group">
+                  <label for="reserve-name">Name</label>
+                  <input type="text" class="form-control" id="reserve-name" />
+                </div>
+                <div class="form-group">
+                  <label for="reserve-phone">Phone Number</label>
+                  <input type="text" class="form-control" id="reserve-phone" />
+                </div>
+                <div class="form-group">
+                  <label for="reserve-email">Email</label>
+                  <input type="text" class="form-control" id="reserve-email" />
+                </div>
+                <div class="form-group">
+                  <label for="reserve-unique-id">Unique ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="reserve-unique-id"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <p>
+            <a href="/api/tables">API Table Link</a> |
+            <a href="/api/waitlist">API Wait List</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+  // In essence, when the user hits submit, document.getElementById grabs all of the fields then sends a post request to our api
+  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+  const submitBtn = document.querySelector('.submit');
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Grab form elements
+    let newReservation = {
+      customerName: document.getElementById('reserve-name').value.trim(),
+      phoneNumber: document.getElementById('reserve-phone').value.trim(),
+      customerEmail: document.getElementById('reserve-email').value.trim(),
+      customerID: document.getElementById('reserve-unique-id').value.trim(),
+    };
+
+    console.log('submitBtn.onclick -> newReservation', newReservation);
+
+    // Here we make our fetch by providing a URL, the object we want to send as the body object, then we have a "promise".
+    // The promise is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+
+    fetch('/api/tables', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newReservation),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          // If a table is available... tell user they are booked.
+
+          alert('Yay! You are officially booked!');
+        } else {
+          // Otherwise, tell the  user they are on the wait list
+
+          alert('Sorry you are on the wait list');
+
+          // Clear the form
+          document.getElementById('reserve-name').value = '';
+          document.getElementById('reserve-phone').value = '';
+          document.getElementById('reserve-email').value = '';
+          document.getElementById('reserve-unique-id').value = '';
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
+</script>

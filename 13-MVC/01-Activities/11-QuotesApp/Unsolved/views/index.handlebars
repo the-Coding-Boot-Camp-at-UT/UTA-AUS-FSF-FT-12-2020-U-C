@@ -1,0 +1,35 @@
+<h1>Quotes App</h1>
+
+<p>Manage quotes with this app</p>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each quotes}}
+  <li>
+    <p><span class="label">ID:</span> {{this.id}}</p>
+    <p><span class="label">Quote:</span> {{this.quote}}</p>
+    <p><span class="label">Author:</span> {{this.author}}</p>
+
+    <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+    <a href="/{{this.id}}">Update this quote</a>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Add a Quote</h2>
+
+<form id="create-form">
+
+  <div class="form-group">
+    <label for="auth">Author:</label>
+    <input type="text" id="auth" name="author">
+  </div>
+
+  <div class="form-group">
+    <label for="quo">Quote:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+  </div>
+
+  <button type="submit">Add Quote</button>
+</form>

@@ -1,0 +1,17 @@
+<style media="screen">
+  li {
+    background-color: wheat;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 50%;
+    font-family: sans-serif;
+  }
+</style>
+
+<h1>Lunches for {{eater}}</h1>
+
+<ul>
+{{#each foods }}
+  <li>{{lunch}}</li>
+{{/each}}
+</ul>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tables Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="text-center">
+          <span class="fa fa-fire"></span> Hot Restaurant
+        </h1>
+        <hr />
+        <h2 class="text-center">Current Reservations and Waiting List</h2>
+        <br />
+
+        <div class="text-center">
+          <a href="/reserve">
+            <button class="btn btn-lg btn-danger">
+              <span class="fa fa-credit-card"></span> Make Reservation
+            </button>
+          </a>
+          <a href="/">
+            <button class="btn btn-lg btn-default">
+              <span class="fa fa-home"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Current Tables in Use -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Current Reservations</h4>
+            </div>
+            <div class="card-body">
+              <ul id="tableList" class="list-group"></ul>
+            </div>
+          </div>
+
+          <!-- Waiting List Card -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <h4>Waiting List</h4>
+            </div>
+            <div class="card-body">
+              <ul id="waitList" class="list-group"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer mt-4">
+        <div class="container">
+          <p>Control Panel</p>
+          <p>
+            <a href="#" id="clear">Clear Table</a> |
+            <a href="/api/tables">API Table Link</a> |
+            <a href="/api/waitlist">API Wait List</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+  <script type="text/javascript">
+    // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+    // It's also very similar to the NYT search application.
+
+    const runTableQuery = () => {
+      // Fetch function GET the data associated with it (initially set to localhost)
+      fetch('/api/tables', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((tableData) => {
+          console.log('tableData', tableData);
+          console.log('------------------------------------');
+
+          for (let i = 0; i < tableData.length; i++) {
+            // Get a reference to the tableList element and populate it with tables
+            const tableList = document.getElementById('tableList');
+
+            // Then display the fields in the HTML (Section Name, Date, URL)
+            let listItem = document.createElement('li');
+            listItem.classList.add('list-group-item', 'mt-4');
+
+            // Create elements for Table ID, ID, Name, Email, Phone
+            const tableEl = document.createElement('h2');
+            tableEl.textContent = `Table #${i + 1}`;
+
+            const hrBreak = document.createElement('hr');
+
+            const idEl = document.createElement('h2');
+            idEl.textContent = `ID: ${tableData[i].customerID}`;
+
+            const nameEl = document.createElement('h2');
+            nameEl.textContent = `Name: ${tableData[i].customerName}`;
+
+            const emailEl = document.createElement('h2');
+            emailEl.textContent = `Email: ${tableData[i].customerEmail}`;
+
+            const phoneEl = document.createElement('h2');
+            phoneEl.textContent = `Phone: ${tableData[i].phoneNumber}`;
+
+            // Append all elements to the listItem
+            listItem.appendChild(tableEl);
+            listItem.appendChild(hrBreak);
+            listItem.appendChild(idEl);
+            listItem.appendChild(nameEl);
+            listItem.appendChild(emailEl);
+            listItem.appendChild(phoneEl);
+
+            // Append listItem to tableList
+            tableList.appendChild(listItem);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
+    const runWaitListQuery = () => {
+      fetch('/api/waitlist', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((waitData) => {
+          // Here we then log the waitlistData to console, where it will show up as an object.
+          console.log('runWaitListQuery -> waitData', waitData);
+          console.log('------------------------------------');
+
+          // Loop through and display each of the customers
+          for (let i = 0; i < waitData.length; i++) {
+            // Get a reference to the waitList element and populate it with tables
+            const waitList = document.getElementById('waitList');
+            console.log('runWaitListQuery -> waitList', waitList);
+
+            // Then display the fields in the HTML (Section Name, Date, URL)
+            let listItem = document.createElement('li');
+            listItem.classList.add('list-group-item', 'mt-4');
+
+            // Add elements that will display customer ID, name, email and phone number
+            const tableEl = document.createElement('h2');
+            tableEl.textContent = 'Table #' + (i + 1);
+            console.log('runWaitListQuery -> tableEl', tableEl);
+
+            const hrBreak = document.createElement('hr');
+
+            const idEl = document.createElement('h2');
+            idEl.textContent = `ID: ${waitData[i].customerID}`;
+            console.log('runWaitListQuery -> idEl', idEl);
+
+            const nameEl = document.createElement('h2');
+            nameEl.textContent = `Name: ${waitData[i].customerName}`;
+            console.log('runWaitListQuery -> nameEl', nameEl);
+
+            const emailEl = document.createElement('h2');
+            emailEl.textContent = `Email: ${waitData[i].customerEmail}`;
+            console.log('runWaitListQuery -> emailEl', emailEl);
+
+            const phoneEl = document.createElement('h2');
+            phoneEl.textContent = `Phone: ${waitData[i].phoneNumber}`;
+            console.log('runWaitListQuery -> phoneEl', phoneEl);
+
+            // Append all elements to the listItem
+            listItem.appendChild(tableEl);
+            listItem.appendChild(hrBreak);
+            listItem.appendChild(idEl);
+            listItem.appendChild(nameEl);
+            listItem.appendChild(emailEl);
+            listItem.appendChild(phoneEl);
+
+            waitList.appendChild(listItem);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
+    // This function resets all of the data in our tables. This is intended to let you restart a demo.
+    const clearTable = () => {
+      alert('Clearing...');
+
+      fetch('/api/clear', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          let waitList = document.getElementById('waitList');
+          waitList.innerHTML = '';
+
+          let tableList = document.getElementById('tableList');
+          tableList.innerHTML = '';
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
+    let clear = document.getElementById('clear');
+    clear.addEventListener('click', clearTable)
+
+    // Run Queries!
+    // ==========================================
+    runTableQuery();
+    runWaitListQuery();
+  </script>
+</html>

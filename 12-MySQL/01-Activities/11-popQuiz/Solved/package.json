@@ -1,0 +1,15 @@
+{
+  "name": "pop-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "colleges.js",
+  "scripts": {
+    "start": "node colleges",
+    "watch": "nodemon colleges"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}

@@ -1,0 +1,16 @@
+<h1>Update the quote with an id of {{this.id}}</h1>
+
+<form data-id="{{this.id}}" id="update-form">
+
+  <div id="form-group">
+    <label for="auth">Author:</label>
+    <input type="text" id="auth" name="author" value="{{this.author}}">
+  </div>
+
+  <div class="form-group">
+    <label for="quo">Quote:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40">{{this.quote}}</textarea>
+  </div>
+
+  <button type="submit">Update Quote</button>
+</form>

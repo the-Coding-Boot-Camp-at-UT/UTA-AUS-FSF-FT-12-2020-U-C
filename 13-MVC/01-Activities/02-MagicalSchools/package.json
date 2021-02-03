@@ -1,0 +1,15 @@
+{
+  "name": "exercise2_magical_schools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "magicSchools.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}

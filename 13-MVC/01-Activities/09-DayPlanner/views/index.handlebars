@@ -1,0 +1,127 @@
+<h1>Day Planner</h1>
+
+<ul>
+  {{#each plans}}
+  <li>
+    <p>
+      {{this.id}}. {{this.plan}}
+
+      <button data-planid="{{this.id}}" class="delplan">Delete Plan!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Create a Plan</h2>
+<form id="createplan" class="button-size">
+  <textarea type="text" name="plan"></textarea>
+  <button type="submit">Save Plan!</button>
+</form>
+
+<h2>Update a Plan</h2>
+<form id="updateplan" class="button-size">
+  <select name="id">
+    {{#each plans}}
+    <option value="{{this.id}}">{{this.plan}}</option>
+    {{/each}}
+  </select>
+  <textarea type="text" name="plan" placeholder="plan"></textarea>
+  <button type="submit">Update Plan!</button>
+</form>
+
+<script type="text/javascript">
+
+  // DELETE
+  // Get the button
+  const deletePlanBtns = document.querySelectorAll('.delplan')
+
+  // Set up the event listeners for each delete button
+  deletePlanBtns.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-planid')
+      console.log("delete plan id", id)
+
+      // Send the delete request
+      fetch(`/api/plans/${id}`, {
+        method: 'DELETE',
+      }).then(() => {
+        console.log(`Deleted ID: ${id}`)
+
+        // Reload the page
+        location.reload()
+      })
+    })
+  })
+
+  // CREATE
+  const createPlanBtn = document.getElementById('createplan')
+
+  // Set up the event listener for the create button
+  createPlanBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Grabs the value of the textarea that goes by the name, "plan"
+    const newPlan = {
+      plan: document.getElementsByName('plan')[0].value.trim()
+    }
+    console.log(newPlan);
+
+    // Send POST request to create a new plan
+    fetch("/api/plans", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+
+      //make sure to serialize the JSON body
+      body: JSON.stringify(newPlan)
+    })
+      .then((response) => {
+        // Empty the form
+        document.getElementsByName('plan')[0].value = ''
+
+        // Reload the page so the user can see the new plan
+        console.log("Created a new plan!")
+        location.reload()
+      });
+  })
+
+  // UPDATE
+  const updatePlanBtn = document.getElementById('updateplan')
+
+  // Set up the event listener for the create button
+  updatePlanBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Grabs the id of the element that goes by the name, "id"
+    const id = document.getElementsByName('id')[0].value
+    const updatedPlan = {
+      plan: document.getElementsByName('plan')[1].value
+    }
+    console.log("updatedPlan", updatedPlan)
+
+    // Send POST request to create a new plan
+    fetch(`/api/plans/${id}`, {
+      method: "PUT",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+
+      //make sure to serialize the JSON body
+      body: JSON.stringify(updatedPlan)
+    })
+      .then((response) => {
+        // Check that the response is all good
+        // Reload the page so the user can see the new plan
+        if (response.ok) {
+          console.log(`Updated the plan with id: ${id}`)
+          location.reload()
+        } else {
+          alert('something went wrong!')
+        }
+      });
+  })
+
+</script>
