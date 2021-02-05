@@ -1,0 +1,123 @@
+<h1>Movies To Watch</h1>
+
+<ul>
+  {{#each movies}}
+  <li>
+    <p>
+      {{this.id}}. {{this.movie}}
+
+      <button data-movieid="{{this.id}}" class="delmovie">Delete</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Add a Movie to Watch</h2>
+<form id="addmovie" class="button-size">
+  <textarea type="text" name="movie"></textarea>
+  <button type="submit">Save Movie!</button>
+</form>
+
+<h2>Update a Movie</h2>
+<form id="updatemovie" class="button-size">
+  <input type="text" name="id" placeholder="id">
+  <textarea type="text" name="movie" placeholder="what do you want to update this movie title to?"></textarea>
+  <button type="submit">Update Movie!</button>
+</form>
+
+<script type="text/javascript">
+  // DELETE
+  // Get the button
+  const deleteMovieBtns = document.querySelectorAll('.delmovie')
+
+  // Set up the event listeners for each delete button
+  deleteMovieBtns.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-movieid')
+      console.log("delete movie id", id)
+
+      // Send the delete request
+      fetch(`/api/movies/${id}`, {
+        method: 'DELETE',
+      }).then(() => {
+        console.log(`Deleted ID: ${id}`)
+
+        // Reload the page
+        location.reload()
+      })
+    })
+  })
+
+  // CREATE
+  const createMovieBtn = document.getElementById('addmovie')
+
+  // Set up the event listener for the create button
+  createMovieBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Grabs the value of the textarea that goes by the name, "movie"
+    const newMovie = {
+      movie: document.getElementsByName('movie')[0].value.trim()
+    }
+    console.log(newMovie);
+
+    // Send POST request to create a new movie
+    fetch("/api/movies", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+
+      //make sure to serialize the JSON body
+      body: JSON.stringify(newMovie)
+    })
+      .then((response) => {
+        // Empty the form
+        document.getElementsByName('movie')[0].value = ''
+
+        // Reload the page so the user can see the new movie
+        console.log("Created a new movie!")
+        location.reload()
+      });
+  })
+
+  // UPDATE
+  const updateMovieBtn = document.getElementById('updatemovie')
+
+  // Set up the event listener for the create button
+  updateMovieBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Grabs the id of the element that goes by the name, "id"
+    const id = document.getElementsByName('id')[0].value
+    const updatedMovie = {
+      movie: document.getElementsByName('movie')[1].value
+    }
+    console.log("updatedMovie", updatedMovie)
+
+    // Send POST request to create a new movie
+    fetch(`/api/movies/${id}`, {
+      method: "PUT",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+
+      //make sure to serialize the JSON body
+      body: JSON.stringify(updatedMovie)
+    })
+      .then((response) => {
+        // Check that the response is all good
+        // Reload the page so the user can see the new movie
+        if (response.ok) {
+          console.log(`Updated the movie with id: ${id}`)
+          location.reload()
+        } else {
+          alert('something went wrong!')
+        }
+      });
+  })
+
+
+</script>
