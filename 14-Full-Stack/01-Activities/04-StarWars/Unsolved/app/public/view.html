@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Star Wars - Express</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Star Wars Express</h1>
+      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <hr>
+      <a href="/add" class="btn btn-danger btn-lg">
+        <span class="fa fa-plus"></span> Add New Character</a>
+      <a href="/all" class="btn btn-danger btn-lg">
+        <span class="fa fa-th-list"></span> All Characters</a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Character Search
+          </div>
+          <div class="card-body">
+            <input type="text" id="character-search" class="form-control">
+            <br>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-md" id="search-btn">
+                <span class="fa fa-search"></span> Search Your Feelings. You know it is true.</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-header">
+            Character Details
+          </div>
+          <div class="card-body" id="well-section">
+            <!-- Content will go in here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Script -->
+  <script src="js/view.js" type="text/javascript"></script>
+
+</body>
+
+</html>
