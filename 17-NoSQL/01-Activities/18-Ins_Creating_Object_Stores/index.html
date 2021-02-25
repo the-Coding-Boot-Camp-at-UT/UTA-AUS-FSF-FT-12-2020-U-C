@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Creating An Object Store</title>
+  </head>
+
+  <body>
+    <h1>Open Your Developer Tools > Application > IndexedDB</h1>
+    <script>
+      // We request a database instance
+      const request = window.indexedDB.open("toDoList", 1);
+
+      // Create an object store inside the onupgradeneeded method.
+      request.onupgradeneeded = ({ target }) => {
+        const db = target.result;
+        const objectStore = db.createObjectStore("toDoList");
+      };
+
+      // On success console the result.
+      request.onsuccess = event => {
+        console.log(request.result);
+      };
+    </script>
+  </body>
+</html>
+
