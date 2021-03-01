@@ -1,0 +1,21 @@
+{
+	"name": "bundle-analyzer-demo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"build": "webpack --watch",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"webpack": "^4.32.0",
+		"webpack-bundle-analyzer": "^3.3.2",
+		"webpack-cli": "^3.3.2"
+	},
+	"dependencies": {
+		"chart.js": "^2.8.0"
+	}
+}

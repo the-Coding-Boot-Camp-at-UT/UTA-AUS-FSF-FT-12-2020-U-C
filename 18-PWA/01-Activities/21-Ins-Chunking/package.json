@@ -1,0 +1,25 @@
+{
+    "name": "ins-pure-functions",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "webpack": "webpack --watch",
+        "build": "npm run webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-dynamic-import-webpack": "^1.1.0",
+        "webpack": "^4.32.2",
+        "webpack-cli": "^3.3.2"
+    },
+    "dependencies": {
+        "chart.js": "^2.8.0"
+    }
+}
