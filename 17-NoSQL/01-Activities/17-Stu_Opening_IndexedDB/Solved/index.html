@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Making An IndexedDB Connection</title>
+  </head>
+
+  <body>
+    <h1>Open Your Developer Tools > Application > IndexedDB</h1>
+    <script>
+      const request = window.indexedDB.open("firstDatabase", 1);
+
+      request.onsuccess = event => {
+        console.log(request.result.name);
+      };
+    </script>
+  </body>
+</html>
