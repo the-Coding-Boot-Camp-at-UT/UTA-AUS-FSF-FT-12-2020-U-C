@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#009578" />
+    <title>Map PWA</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="apple-touch-icon" href="./assets/images/logo128.png" />
+  </head>
+  
+  <body>
+    <section class="container">
+      <h2>Trip Planner</h2>
+      <div class="agenda">
+        <h4>Getting Situated</h4>
+        <table class="sites">
+          <td><a href="https://www.timeanddate.com/worldclock/germany/berlin" target="_blank">Local Time</a></td>
+          <td><a href="https://www.international.hu-berlin.de/en/studierende/aus-dem-ausland/wegweiser/11/index" target="_blank">Emergency Services</a></td>
+          <td><a href="https://en.wikipedia.org/wiki/Airports_of_Berlin" target="_blank">Airport</a></td>
+        </table>
+      </div>
+      <img class="image" src="./assets/images/map.jpg" alt="map of Berlin" />
+    </section>
+  
+    <section class="container">
+      <div class="agenda">
+        <h4>Places to See</h4>
+        <table class="sites">
+          <td><a href="https://en.wikipedia.org/wiki/Brandenburg" target="_blank">Brandenburg Gate</a></td>
+        </table>
+      </div> 
+      <img class="image" src="./assets/images/brandenburg.jpg" alt="The Brandenburg Gate in Berlin, GE" />
+    </section>
+
+    <section class="container">
+      <div class="agenda">
+        <h4>Places to See</h4>
+        <table class="sites">
+          <td><a href="https://en.wikipedia.org/wiki/Reichstag_building" target="_blank">Reichstag</a></td>
+        </table>
+      </div> 
+      <img class="image" src="./assets/images/reichstag.jpg" alt="The front of the Reichstag building viewed from outside." />
+    </section>
+
+    <script src="./service-worker.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker Registered!');
+          })
+          .catch((error) => {
+            console.log('Service Worker Registration Failed!');
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>

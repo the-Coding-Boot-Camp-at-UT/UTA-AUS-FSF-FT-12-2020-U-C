@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+		integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+		crossorigin="anonymous"></script>
+	<title>Webpack demo</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Expenses Tracker</h1>
+		<form class="mb-5">
+			<div>
+				<h3>Your budget is: $<span id="budget">2000</span></h3>
+				<h3>Your current balance is: $<span id="balance">2000</span></h3>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="expense" aria-describedby="expenseName" placeholder="Enter expense">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<input id="price" type="number" class="form-control" placeholder="price">
+			</div>
+			<br>
+			<button id="submit" class="btn btn-primary">Submit</button>
+			<button id="reset" class="btn btn-danger">Reset</button>
+		</form>
+		<h1 class="text-center">Expenses:</h1>
+		<ul id="expenses-list" class="list-group">
+
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+
+</html>

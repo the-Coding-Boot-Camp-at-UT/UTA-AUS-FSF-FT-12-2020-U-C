@@ -1,4 +1,4 @@
-const calculations = require("./calculation");
+const calculations = require("./calculations");
 
 const priceEl = document.getElementById("price");
 const balanceEl = document.getElementById("balance");
@@ -23,7 +23,7 @@ function reset(e) {
   e.preventDefault();
   const total = 2000;
   balanceEl.innerText = total;
-  expensesListEl.innerHTML = '';
+  expensesListEl.innerHTML = "";
 }
 
 submitBtn.onclick = submit;

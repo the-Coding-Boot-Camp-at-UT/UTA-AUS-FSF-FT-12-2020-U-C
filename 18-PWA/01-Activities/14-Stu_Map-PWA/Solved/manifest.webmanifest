@@ -1,0 +1,30 @@
+{
+  "name": "Map PWA",
+  "short_name": "Map PWA",
+  "start_url": ".",
+  "background_color": "#cadbda",
+  "theme_color": "#cadbda",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/images/logo16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ] 
+}
