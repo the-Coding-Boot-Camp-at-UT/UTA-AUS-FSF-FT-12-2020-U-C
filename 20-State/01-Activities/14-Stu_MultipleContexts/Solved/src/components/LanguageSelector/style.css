@@ -1,0 +1,41 @@
+.language-btn {
+  text-align: center;
+  font-size: 24px;
+}
+
+.language-btn .card-btn {
+  position: relative;
+  height: 25px;
+  width: 25px;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.language-btn .back {
+  margin-right: 30px;
+  background: rgb(67, 81, 160);
+}
+
+.language-btn .next {
+  margin-left: 30px;
+  background: rgb(67, 81, 160);
+}
+
+.language-btn .next:hover::after,
+.back:hover::after {
+  animation: languageBounce 0.57s 1;
+}
+
+@keyframes languageBounce {
+  0% {
+    font-size: 12px;
+  }
+
+  50% {
+    font-size: 14px;
+  }
+
+  100% {
+    font-size: 12px;
+  }
+}
